@@ -1,0 +1,42 @@
+
+Obtain the latest image
+	You can download the latest Arch Linux ARM image form http://www.raspberrypi.org/downloads
+
+Write image to the SD card
+	Plug your SD card into your computer,and write the ARCH Linux ARM image.Such as "dd bs=1M if=Path/to/archlinux-hf-2013-02-11.img of=/dev/mmcblk0"
+	bs: size of block
+
+Boot your raspberrypi
+	Insert your SD card into your raspberrypi,and boot it.
+
+Change the Root Password
+	Type the command "passwd" and enter your new password for raspberrypi.
+
+Configuring the Network
+	Please check your eth0 has be down.Then you type the command "cd" to the path "/etc/netctl".
+	Copy example configue to "./eth0", and change the configue for you.Type the command "netctl start eth0" to start the network.
+	If your network starts ok, without error,the you can configure it to always start on boot by the command "netctl enable eth0".
+
+Set Your Timezone
+	First you need to check the current setting:"ls -l /etc/localtime" (Maybe there will be no file named /etc/localtime)
+	Then type command "ln -s /usr/share/zoneinfo/ROC /etc/localtime". (That is sets the timezone to be ROC)
+
+Set the Hostname
+	command "echo yourhostname > /etc/hostname"
+	command "hostmane yourhostname"
+
+Add a New user
+	Use the command "useradd yourusername"
+	-m:create a home dictory
+	-g:group
+	-s:shell
+	than set the password for yourusername by the command "passwd yourusername"
+
+Upgrade your Arch Linux
+	Use the command "pacman -Syy" and "pacman -Syu"
+	Then reboot your raspberrypi.
+
+Install Sudo
+	You need to install sudo by command "pacman -S sudo",then use command "visudo" to edit it.
+	If the user belong to the "sudo" group. Than the user can execute sudo.
+
