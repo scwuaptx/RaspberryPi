@@ -40,3 +40,6 @@ Install Sudo
 	You need to install sudo by command "pacman -S sudo",then use command "visudo" to edit it.
 	If the user belong to the "sudo" group. Than the user can execute sudo.
 
+Install lxde
+	installl by command "pacman -S lxde xorg-xinit xf86-video-fbdeb"
+	run by command "xinit /usr/bin/lxsession
